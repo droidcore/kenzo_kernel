@@ -388,7 +388,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
 		   -fno-delete-null-pointer-checks \
-		   -Wno-clobbered -Wno-maybe-uninitialized -Wno-strict-overflow 
+                   -std=gnu89 -fivopts -g0 \
+		   -Wno-clobbered -Wno-maybe-uninitialized -Wno-strict-overflow -mtune=cortex-a57.cortex-a53 -mcpu=cortex-a57.cortex-a53 $(OPTIMIZFLAGS) $(GRAPHITE)  
 
 KBUILD_AFLAGS_KERNEL := $(OPTIMIZFLAGS) $(GRAPHITE)
 KBUILD_CFLAGS_KERNEL := $(OPTIMIZFLAGS) $(GRAPHITE)

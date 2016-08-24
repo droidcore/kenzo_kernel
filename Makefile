@@ -357,7 +357,7 @@ OPTIMIZFLAGS    = -fgcse-las -fgcse-sm -fipa-pta -fivopts -fomit-frame-pointer \
 MODFLAGS	= -DMODULE $(OPTIMIZFLAGS) $(GRAPHITE)
 CFLAGS_MODULE   = $(MODFLAGS) 
 AFLAGS_MODULE   = $(MODFLAGS) 
-LDFLAGS_MODULE  = -T $(srctree)/scripts/module-common.lds
+LDFLAGS_MODULE  =  --strip-debug -T $(srctree)/scripts/module-common.lds
 CFLAGS_KERNEL	= $(OPTIMIZFLAGS) -fpredictive-commoning $(GRAPHITE)
 AFLAGS_KERNEL	= $(OPTIMIZFLAGS) $(GRAPHITE)
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
@@ -590,7 +590,7 @@ all: vmlinux
 ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS	+= -Os $(call cc-disable-warning,maybe-uninitialized,)
 else
-KBUILD_CFLAGS	+= -O3 -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-tree-vectorize -Wno-array-bounds 
+KBUILD_CFLAGS	+= -O3 -fmodulo-sched -fmodulo-sched-allow-regmoves -fno-tree-vectorize -Wno-array-bounds $(OPTIMIZFLAGS) $(GRAPHITE)
 endif
 
 include $(srctree)/arch/$(SRCARCH)/Makefile

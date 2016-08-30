@@ -213,7 +213,7 @@ static void aw2013_led_work(struct work_struct *work)
 
 	if (led->cdev.brightness > 0) {
 		/* enable regulators if they are disabled */
-		if (!led->pdata->led->poweron) {
+		if (!(led->pdata->led->poweron)) {
 			if (aw2013_power_on(led->pdata->led, true)) {
 				dev_err(&led->pdata->led->client->dev, "power on failed");
 				goto out;

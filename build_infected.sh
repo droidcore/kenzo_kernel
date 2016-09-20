@@ -25,7 +25,7 @@ MODULE_DIR=$OUT_DIR/modules
 NEW_OUT=$OUT_DIR
 
 # Kernel Version Info
-BASE="-Infected_Kernel-"
+BASE="Infected_Kernel-"
 CUR_VER="R"
 INFECTED_VER="$BASE$CUR_VER"
  

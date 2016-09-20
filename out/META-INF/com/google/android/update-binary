@@ -103,4 +103,6 @@ umount /system;
 umount /data;
 ui_print " ";
 ui_print "Device Successfully Infected!Enjoy!";
+ui_print " ";
+ui_print " ";
 

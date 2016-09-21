@@ -354,10 +354,9 @@ OPTIMIZFLAGS    = -fgcse-las -fgcse-sm -fipa-pta -fivopts -fomit-frame-pointer \
 		  -funswitch-loops -fweb -pipe -ffast-math -fsingle-precision-constant \
                   -fforce-addr -fsingle-precision-constant -fgcse-las
 
-MODFLAGS	= -DMODULE $(OPTIMIZFLAGS) $(GRAPHITE)
-CFLAGS_MODULE   = $(MODFLAGS) 
-AFLAGS_MODULE   = $(MODFLAGS) 
-LDFLAGS_MODULE  =  --strip-debug -T $(srctree)/scripts/module-common.lds
+CFLAGS_MODULE   =  
+AFLAGS_MODULE   =  
+LDFLAGS_MODULE  =  
 CFLAGS_KERNEL	= $(OPTIMIZFLAGS) -fpredictive-commoning $(GRAPHITE)
 AFLAGS_KERNEL	= $(OPTIMIZFLAGS) $(GRAPHITE)
 CFLAGS_GCOV	= -fprofile-arcs -ftest-coverage
@@ -394,8 +393,8 @@ KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 KBUILD_AFLAGS_KERNEL := $(OPTIMIZFLAGS) $(GRAPHITE)
 KBUILD_CFLAGS_KERNEL := $(OPTIMIZFLAGS) $(GRAPHITE)
 KBUILD_AFLAGS   := -D__ASSEMBLY__
-KBUILD_AFLAGS_MODULE  := $(MODFLAGS) 
-KBUILD_CFLAGS_MODULE  := $(MODFLAGS) -fno-pic
+KBUILD_AFLAGS_MODULE  := -DMODULE 
+KBUILD_CFLAGS_MODULE  := -DMODULE 
 KBUILD_LDFLAGS_MODULE := -T $(srctree)/scripts/module-common.lds
 
 # Read KERNELRELEASE from include/config/kernel.release (if it exists)
